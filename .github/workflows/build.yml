@@ -102,7 +102,7 @@ jobs:
           target_commitish: ${{ github.sha }}
 
           body: |
-            Automatically built from commit ${{ github.sha }}.
+            Automatically built from commit ${{ github.sha }} cuz author(Yes I'm looking at mirror when I say it) is lazy.
 
             Download the portable Windows version below.
 

@@ -4,7 +4,7 @@ local height = 600
 
 local groups = {
     {
-        -- GREY -- 7
+        -- GREY
         color = {128, 128, 128},
         texts = {
             "Infinite Levels!",
@@ -12,14 +12,54 @@ local groups = {
             "Nothing to see here",
             "Heavy RoR2 Influence!",
             "Now with 33% More Salt!",
-            --------------------------
             "Magnificent!",
             "That’s Crazy!",
+            "Happy Pride Month!",
+            "Always Prideful Here!",
+            "2+2 is Not Magikarp",
+            "It’s Only Unfair When I Lose!",
+            "What’s Your Favorite?",
+            "Ask Your Doctor if PokéRogue is Right For You.",
+            "Born to be a Winner!",
+            "On a Rollout!",
+            "Meta Not Included!",
+            "We Hope To See You Again!",
+            "Also Try Showering!",
+            "We’ll Still Be Here When You Get Back!",
+            "A Healthy Team Can Mean Greater Rewards!",
+            "Never Give Up!",
+            "1, 2, And… Poof!",
+            "Also Try PokeDoku!",
+            "Time for Your Deli-Delivery!",
+            "Number 591 Is Looking a Bit…",
         }
     },
 
     {
-        -- GREEN -- 6
+        -- White
+        color = {255, 255, 255},
+        texts = {
+            "Happy Holidays!",
+            "Delibird Season!",
+            "Unaffiliated With Delibird Services!",
+            "Diamonds From the Sky!",
+            "Holiday Style Pikachu Not Included!",
+            "Delibird Directly To Your House!",
+            "Have An Ice Day!",
+            "Spin The Claydol!",
+            "Be Good, For Goodness Sake!",
+            "Moomoo Milk And Lava Cookies!",
+            "I Need a Yache Berry…",
+            "Get Jolly!",
+            "’Tis The Season To Be +Speed -Special Attack!",
+            "Deck The Halls!",
+            "Save Scumming Gets You On The Naughty List!",
+            "Bad Trainers Get Rolycoly!"
+        }
+    },
+
+    {
+        -- GREEN
         color = {0, 128, 0},
         texts = {
             ">1 Battles Won!",
@@ -32,7 +72,7 @@ local groups = {
     },
 
     {
-        -- BLUE -- 5
+        -- BLUE
         color = {0, 0, 128},
         texts = {
             "Happy Valentines!",
@@ -40,22 +80,26 @@ local groups = {
             "An Applin for You?",
             "The Power Of Love Is 330 BST!",
             "Have a Heart Scale!",
+            "I <3 You!"
         }
     },
 
     {
-        -- PURPLE -- 4
+        -- PURPLE
         color = {128, 0, 128},
         texts = {
             "Happy Halloween!",
             "BOO!",
             "Pumpkaboo About!",
             "May Contain Spiders!",
+            "Spooky, Scary Skeledirge!",
+            "Gourgeist Used Trick-or-Treat!",
+            "Let’s Snuggle Forever!"
         }
     },
 
     {
-        -- GOLD -- 3
+        -- GOLD
         color = {255, 255, 0},
         texts = {
             "W Event",
@@ -337,6 +381,19 @@ function love.draw()
 
 
     -- COLLECTION INDEX
+
+    love.graphics.setFont(smallFont)
+    love.graphics.setColor(1, 1, 1)
+
+    local indexInstruction = "Press I to view the collection index"
+
+    love.graphics.printf(
+        indexInstruction,
+        0,
+        height - 50,
+        width,
+        "center"
+    )
 
     if indexOpen then
 
