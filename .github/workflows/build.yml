@@ -1,0 +1,70 @@
+
+name: Build Splash Gacha
+
+on:
+  push:
+    branches:
+      - "**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+
+  build-love:
+    name: Package LÖVE game
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Build .love package
+        uses: love-actions/love-actions-core@v1
+        with:
+          build-list: ./main.lua
+          package-path: ./game.love
+
+      - name: Upload .love package
+        uses: actions/upload-artifact@v7
+        with:
+          name: SplashGacha-love
+          path: game.love
+          if-no-files-found: error
+          retention-days: 14
+
+
+
+  build-windows:
+    name: Build Windows portable ZIP
+    runs-on: windows-latest
+    needs: build-love
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Download .love package
+        uses: actions/download-artifact@v8
+        with:
+          name: SplashGacha-love
+
+      - name: Build Windows packages
+        uses: love-actions/love-actions-windows@v2
+        with:
+          love-ref: "11.5"
+          love-package: ./game.love
+          product-name: SplashGacha
+          output-folder: ./dist
+
+          # No app-id = no installer.
+
+      - name: Upload portable Windows game
+        uses: actions/upload-artifact@v7
+        with:
+          name: SplashGacha-Windows-x64
+          path: dist/SplashGacha_x64.zip
+          if-no-files-found: error
+          retention-days: 14
